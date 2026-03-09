@@ -1,0 +1,18 @@
+# LangChain Core
+langchain
+langchain-core
+langchain-community
+langchain-text-splitters
+
+# LLM Providers
+langchain-openai
+langchain-anthropic
+
+# Vector Stores
+langchain-chroma
+
+# Agents
+langgraph
+
+# Utilities
+python-dotenv
