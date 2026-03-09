@@ -160,11 +160,11 @@ graph.add_conditional_edges("evaluar", decidir_ruta)
 LangGraph provee un agente prebuilt que sigue el patrón **ReAct** (Reasoning + Acting):
 
 ```python
-from langgraph.prebuilt import create_react_agent
+from langchain.agents import create_agent
 from langchain_openai import ChatOpenAI
 
 llm = ChatOpenAI(model="gpt-4o-mini")
-agent = create_react_agent(llm, tools=[mi_herramienta])
+agent = create_agent(llm, tools=[mi_herramienta])
 result = agent.invoke({"messages": [("human", "Haz algo")]})
 ```
 

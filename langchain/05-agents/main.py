@@ -2,7 +2,7 @@
 Agentes - Ejemplos ejecutables
 ===============================
 Prerequisitos:
-    pip install langchain-openai langgraph python-dotenv
+    pip install langchain langchain-openai python-dotenv
 
 Configuración:
     Crea un archivo .env en la raíz del proyecto con:
@@ -126,10 +126,10 @@ print("=" * 60)
 print("3. AGENTE REACT CON LANGGRAPH")
 print("=" * 60)
 
-from langgraph.prebuilt import create_react_agent
+from langchain.agents import create_agent
 
 # Crear agente con todas las herramientas
-agent = create_react_agent(llm, tools)
+agent = create_agent(llm, tools)
 
 # El agente razona y usa herramientas automáticamente
 result = agent.invoke({
@@ -223,10 +223,10 @@ print("=" * 60)
 print("7. AGENTE CON SYSTEM PROMPT")
 print("=" * 60)
 
-agent_custom = create_react_agent(
+agent_custom = create_agent(
     llm,
     tools,
-    prompt="Eres un asistente de TechCorp. Siempre responde en español y de forma amable. Usa las herramientas disponibles cuando sea necesario.",
+    system_prompt="Eres un asistente de TechCorp. Siempre responde en español y de forma amable. Usa las herramientas disponibles cuando sea necesario.",
 )
 
 result = agent_custom.invoke({

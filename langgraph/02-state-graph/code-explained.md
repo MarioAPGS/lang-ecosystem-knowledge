@@ -59,6 +59,7 @@ Con el reducer `add`:
 | Reducer | Import | Comportamiento |
 |---|---|---|
 | `add` | `from operator import add` | Concatena listas: `[a] + [b]` |
+| `add_messages` | `from langgraph.graph import MessagesState` | Agrega mensajes; si comparten `id`, actualiza en vez de duplicar |
 | Función custom | — | Cualquier lógica personalizada |
 
 ### Ejemplo: reducer personalizado
@@ -108,6 +109,8 @@ def paso_b(state):
 # Después de paso_a: {"texto": "inicio → A", "paso_actual": "A"}
 # Después de paso_b: {"texto": "inicio → A → B", "paso_actual": "B"}
 ```
+
+> **Nota:** Aquí `texto` sigue usando sobreescritura (no hay reducer). La concatenación ocurre porque el nodo **lee manualmente** el valor previo con `state["texto"] + ...` y retorna el string completo. No es acumulación automática — el valor retornado reemplaza al anterior.
 
 ---
 

@@ -2,7 +2,7 @@
 ReAct Agent - Ejemplos ejecutables
 =====================================
 Prerequisitos:
-    pip install langgraph langchain-openai python-dotenv
+    pip install langchain langchain-openai python-dotenv
 
 Configuración:
     Crea un archivo .env en la raíz del proyecto con:
@@ -18,7 +18,7 @@ load_dotenv()
 
 from langchain_openai import ChatOpenAI
 from langchain_core.tools import tool
-from langgraph.prebuilt import create_react_agent
+from langchain.agents import create_agent
 
 llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
@@ -59,7 +59,7 @@ print("=" * 60)
 print("2. REACT AGENT BÁSICO")
 print("=" * 60)
 
-agent1 = create_react_agent(llm, tools=[sumar, multiplicar])
+agent1 = create_agent(llm, tools=[sumar, multiplicar])
 
 result1 = agent1.invoke({
     "messages": [("human", "¿Cuánto es 15 + 27?")]
@@ -91,7 +91,7 @@ def potencia(base: float, exponente: float) -> float:
     return base ** exponente
 
 
-agent_math = create_react_agent(
+agent_math = create_agent(
     llm,
     tools=[sumar, multiplicar, raiz_cuadrada, potencia]
 )
@@ -124,10 +124,10 @@ def calcular_edad(anio_nacimiento: int) -> int:
     return datetime.now().year - anio_nacimiento
 
 
-agent_personal = create_react_agent(
+agent_personal = create_agent(
     llm,
     tools=[obtener_fecha, calcular_edad],
-    prompt="Eres un asistente personal amable. Siempre respondes en español y de forma concisa."
+    system_prompt="Eres un asistente personal amable. Siempre respondes en español y de forma concisa."
 )
 
 result3 = agent_personal.invoke({
@@ -190,7 +190,7 @@ def info_pais(pais: str) -> str:
     return f"No tengo información sobre '{pais}'"
 
 
-agent_geo = create_react_agent(llm, tools=[info_pais])
+agent_geo = create_agent(llm, tools=[info_pais])
 
 result4 = agent_geo.invoke({
     "messages": [("human", "¿Cuál es la capital de Japón y qué idioma hablan?")]

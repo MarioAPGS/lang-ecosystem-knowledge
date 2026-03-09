@@ -28,19 +28,19 @@
 
 ---
 
-## `create_react_agent`: el agente prebuilt
+## `create_agent`: el agente prebuilt
 
-LangGraph provee un agente ReAct listo para usar:
+LangChain provee un agente ReAct listo para usar:
 
 ```python
-from langgraph.prebuilt import create_react_agent
+from langchain.agents import create_agent
 from langchain_openai import ChatOpenAI
 
 llm = ChatOpenAI(model="gpt-4o-mini")
-agent = create_react_agent(llm, tools=[herramienta1, herramienta2])
+agent = create_agent(llm, tools=[herramienta1, herramienta2])
 ```
 
-Internamente, `create_react_agent` crea un grafo con:
+Internamente, `create_agent` crea un grafo con:
 - Un nodo **"agent"** que invoca al LLM
 - Un nodo **"tools"** que ejecuta las herramientas
 - Conditional edges que deciden si usar herramientas o terminar
@@ -98,10 +98,10 @@ for msg in result["messages"]:
 ### Con system prompt
 
 ```python
-agent = create_react_agent(
+agent = create_agent(
     llm,
     tools=[herramienta],
-    prompt="Eres un asistente matemático. Solo respondes sobre números."
+    system_prompt="Eres un asistente matemático. Solo respondes sobre números."
 )
 ```
 
@@ -150,7 +150,7 @@ Cada `step` muestra el estado después de cada nodo (agent → tools → agent �
 | Concepto | Qué es | API |
 |---|---|---|
 | ReAct | Patrón Reasoning + Acting | Ciclo: razonar → actuar → observar |
-| `create_react_agent` | Agente prebuilt | `create_react_agent(llm, tools)` |
+| `create_agent` | Agente prebuilt | `create_agent(llm, tools)` |
 | `@tool` | Decorador para crear herramientas | `from langchain_core.tools import tool` |
-| System prompt | Instrucciones del agente | Parámetro `prompt` |
+| System prompt | Instrucciones del agente | Parámetro `system_prompt` |
 | Streaming | Ver cada paso del agente | `agent.stream({"messages": [...]})` |

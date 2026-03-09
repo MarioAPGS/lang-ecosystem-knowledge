@@ -171,7 +171,7 @@ print("=" * 60)
 print("4. MESSAGESSTATE PARA CHATBOTS")
 print("=" * 60)
 
-from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
+from langchain_core.messages import HumanMessage, AIMessage
 
 
 def chatbot_simple(state: MessagesState) -> dict:

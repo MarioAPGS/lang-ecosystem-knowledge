@@ -178,7 +178,7 @@ Los agentes pueden usar **herramientas** para realizar acciones:
 ```python
 from langchain_openai import ChatOpenAI
 from langchain_community.tools import DuckDuckGoSearchRun
-from langgraph.prebuilt import create_react_agent
+from langchain.agents import create_agent
 
 # Definir herramientas
 search = DuckDuckGoSearchRun()
@@ -186,7 +186,7 @@ tools = [search]
 
 # Crear agente
 llm = ChatOpenAI(model="gpt-4o")
-agent = create_react_agent(llm, tools)
+agent = create_agent(llm, tools)
 
 # Ejecutar
 result = agent.invoke({

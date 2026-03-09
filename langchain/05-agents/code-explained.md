@@ -95,9 +95,9 @@ tool = StructuredTool.from_function(buscar_usuario)
 - Puntos de control (checkpoints)
 
 ```python
-from langgraph.prebuilt import create_react_agent
+from langchain.agents import create_agent
 
-agent = create_react_agent(llm, tools)
+agent = create_agent(llm, tools)
 result = agent.invoke({"messages": [("human", "mi pregunta")]})
 ```
 
