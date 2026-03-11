@@ -14,5 +14,8 @@ langchain-chroma
 # Agents
 langgraph
 
+# Observability & Testing
+langsmith
+
 # Utilities
 python-dotenv

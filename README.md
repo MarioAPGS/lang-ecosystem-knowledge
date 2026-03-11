@@ -122,27 +122,47 @@ lang-ecosystem-knowledge/
 │   └── 06-memory/
 │       ├── code-explained.md
 │       └── main.py
-└── langgraph/
-    ├── 01-first-steps.md              ← Guía de iniciación a LangGraph
-    ├── 01-conceptos-fundamentales/
+├── langgraph/
+│   ├── 01-first-steps.md              ← Guía de iniciación a LangGraph
+│   ├── 01-conceptos-fundamentales/
+│   │   ├── code-explained.md
+│   │   └── main.py
+│   ├── 02-state-graph/
+│   │   ├── code-explained.md
+│   │   └── main.py
+│   ├── 03-nodes-edges/
+│   │   ├── code-explained.md
+│   │   └── main.py
+│   ├── 04-conditional-edges/
+│   │   ├── code-explained.md
+│   │   └── main.py
+│   ├── 05-react-agent/
+│   │   ├── code-explained.md
+│   │   └── main.py
+│   ├── 06-human-in-the-loop/
+│   │   ├── code-explained.md
+│   │   └── main.py
+│   └── 07-persistence-checkpoints/
+│       ├── code-explained.md
+│       └── main.py
+└── langsmith/
+    ├── 01-first-steps.md              ← Guía de iniciación a LangSmith
+    ├── 01-configuracion-setup/
     │   ├── code-explained.md
     │   └── main.py
-    ├── 02-state-graph/
+    ├── 02-tracing/
     │   ├── code-explained.md
     │   └── main.py
-    ├── 03-nodes-edges/
+    ├── 03-datasets-evaluacion/
     │   ├── code-explained.md
     │   └── main.py
-    ├── 04-conditional-edges/
+    ├── 04-prompts-hub/
     │   ├── code-explained.md
     │   └── main.py
-    ├── 05-react-agent/
+    ├── 05-monitoreo-produccion/
     │   ├── code-explained.md
     │   └── main.py
-    ├── 06-human-in-the-loop/
-    │   ├── code-explained.md
-    │   └── main.py
-    └── 07-persistence-checkpoints/
+    └── 06-testing-experiments/
         ├── code-explained.md
         └── main.py
 ```
